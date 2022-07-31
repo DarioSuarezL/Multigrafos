@@ -16,9 +16,12 @@ public class Multigrafo {
     }
     
     public boolean nombreValido(String name){
-        for (int i = 0; i < cantVertice(); i++) 
-            if(Nombre[i].equals(name))
+        String mayus = name.toUpperCase(); // quitar el bug de los nombres mayusculas y minusculas
+        for (int i = 0; i < cantVertice(); i++){
+            String nmayus = Nombre[i].toUpperCase();
+            if(nmayus.equals(mayus))
                 return false;
+        }
         return true;
     }
     
