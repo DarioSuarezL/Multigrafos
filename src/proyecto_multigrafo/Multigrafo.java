@@ -1,4 +1,4 @@
-package Formulario;
+package proyecto_multigrafo;
 
 public class Multigrafo {
     private static final int MAXVERTEX = 49;
@@ -15,7 +15,7 @@ public class Multigrafo {
         marca = new boolean[MAXVERTEX+1];
     }
     
-    private boolean nombreValido(String name){
+    public boolean nombreValido(String name){
         for (int i = 0; i < cantVertice(); i++) 
             if(Nombre[i].equals(name))
                 return false;
@@ -91,7 +91,7 @@ public class Multigrafo {
             return "(Grafo vacío)";
         else{
             for (int i = 0; i <= n; i++) {
-                cad += "V["+i+", "+Nombre[i]+"]-->"+V[i]+"\n";
+                cad += Nombre[i]+": V["+i+"]-->"+V[i]+"\n";
             }      
         }
         return cad;

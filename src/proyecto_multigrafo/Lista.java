@@ -1,4 +1,4 @@
-package Formulario;
+package proyecto_multigrafo;
 
 public class Lista {
     private Nodo L;
