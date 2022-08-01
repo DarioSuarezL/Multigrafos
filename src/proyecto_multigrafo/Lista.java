@@ -13,6 +13,17 @@ public class Lista {
         return (L == null);
     }
     
+    public boolean Existe(int x, int peso){       
+        Nodo p = L; 
+        Nodo Ant = null;
+        while((p != null && x > p.getData()) || (p != null && x == p.getData() && peso >= p.getPeso())){ //entra si llega p no es nulo y "x" es mayo al data de p... o si p no es nulo, "x" es la misma data de p, pero a la vez el peso sigue siendo mayor
+            Ant = p;
+            p = p.getLink();
+        }
+        
+        return Ant != null && Ant.getData() == x && Ant.getPeso() == peso;
+    }
+    
     public void add(int x, int peso){
         Nodo Ant = null;
         Nodo p = L;

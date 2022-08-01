@@ -75,6 +75,14 @@ public class Multigrafo {
         V[uVert].del(vVert,peso);
     }
     
+    public boolean aristaExiste(String u, int peso, String v){  //delvuelve true si existe una arista con peso p entre u y v
+        int uVert = nombreVertice(u);
+        int vVert = nombreVertice(v);
+        if(!isVerticeValido(uVert) || !isVerticeValido(vVert))
+            return false;
+        return V[uVert].Existe(vVert, peso);
+    }
+    
     public void addArista(String u, int peso, String v){
         if(peso <= 0){
             System.err.println("Grafo.addArista:  El peso debe ser mayor que cero");
@@ -86,6 +94,19 @@ public class Multigrafo {
         if(!isVerticeValido(uVert,metodo) || !isVerticeValido(vVert,metodo))
             return;
         V[uVert].add(vVert, peso);            
+    }
+    
+    public void modPesoArista(String u, int pesoAntiguo, String v, int pesoNuevo){
+        String metodo = "modPesoArista";
+        int uVert = nombreVertice(u);
+        int vVert = nombreVertice(v);
+        if(!isVerticeValido(uVert,metodo) || !isVerticeValido(vVert,metodo))
+            return;
+        if(aristaExiste(u,pesoAntiguo,v)){
+            V[uVert].del(vVert, pesoAntiguo);
+            V[uVert].add(vVert, pesoNuevo);
+        }
+        return;
     }
     
     public String printListas(){ 

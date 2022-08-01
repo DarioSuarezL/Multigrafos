@@ -51,7 +51,6 @@ public class UFPrincipal extends javax.swing.JFrame {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         textArea1 = new java.awt.TextArea();
-        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -63,31 +62,20 @@ public class UFPrincipal extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Proyecto Multigrafo");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
-        setSize(new java.awt.Dimension(1000, 700));
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
 
         textArea1.setBackground(new java.awt.Color(0, 0, 0));
         textArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textArea1.setEditable(false);
         textArea1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         textArea1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
 
         jMenu1.setText("File");
 
@@ -150,7 +138,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem6);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem7.setLabel("delArista");
         jMenuItem7.setName(""); // NOI18N
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +148,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem7);
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem8.setLabel("cleanGrafo");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +156,22 @@ public class UFPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem8);
+
+        jMenuItem9.setLabel("existsArista");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem9);
+
+        jMenuItem10.setLabel("modPesoArista");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem10);
 
         jMenuBar1.add(jMenu2);
 
@@ -179,18 +183,14 @@ public class UFPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE))
+                .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -233,8 +233,12 @@ public class UFPrincipal extends javax.swing.JFrame {
                             actualizarGrafo();
                             nombreArchivo = archivo.getName();
                             archivoAbierto = true;
-                        } catch (FileNotFoundException ex) {
+                        }catch(FileNotFoundException ex) {
                             Logger.getLogger(UFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                        }catch(com.google.gson.JsonSyntaxException ex){
+                            JOptionPane.showMessageDialog(this, "ERROR:\n Archivo lo soportado o corrupto");
+                        }catch(java.lang.IllegalStateException ex){
+                            JOptionPane.showMessageDialog(this, "ERROR:\n El archivo no corresponde a un objeto Multigrafo");
                         }
             }
         }
@@ -249,7 +253,7 @@ public class UFPrincipal extends javax.swing.JFrame {
             jsonText = gson.toJson(MG);
             try (PrintWriter pw = new PrintWriter(archivo)){
                 pw.write(jsonText);
-            } catch (FileNotFoundException ex) {
+            }catch (FileNotFoundException ex){
                 Logger.getLogger(UFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -262,40 +266,51 @@ public class UFPrincipal extends javax.swing.JFrame {
         try (PrintWriter pw = new PrintWriter(archivo)){
             pw.write(jsonText);
             this.jMenuItem4.setEnabled(false);
-        } catch (FileNotFoundException ex) {
+        }catch(FileNotFoundException ex) {
             Logger.getLogger(UFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // CREAR VERTICE
-        String name = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice: ");
-        if(!nombreExistente(name) && !name.isEmpty())
-            MG.addVertice(name);
-        else
-            JOptionPane.showMessageDialog(this, "ERROR:\n El nombre ingresado está ocupado o no es válido"); 
+        try{
+            
+            String name = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice: ");
+            if(!nombreExistente(name) && name.length() > 0)
+                MG.addVertice(name);
+            else
+                JOptionPane.showMessageDialog(this, "ERROR:\n El nombre ingresado está ocupado o no es válido"); 
+            
+        }catch(java.lang.NullPointerException ex){}catch(java.lang.ArrayIndexOutOfBoundsException ex){}
         actualizarGrafo();
         estadoBotonSave();          
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // CREAR ARISTA
+        try{
+            
         String v1 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice de donde origina la arista: ");
         String v2 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice a donde apunta la arista: ");
         int p = Integer.parseInt(JOptionPane.showInputDialog(this,"Ingrese el peso de la arista: \n NOTA: el peso tiene que ser distinto al de otras aristas con misma direccion y origen."));
-        if (!v1.isEmpty() && !v2.isEmpty() && nombreExistente(v1) && nombreExistente(v2) && p > 0)
+        if (v1 != null && v2 != null &&!v1.isEmpty() && !v2.isEmpty() && nombreExistente(v1) && nombreExistente(v2) && p > 0)
             MG.addArista(v1, p, v2);
         else
             if (p <= 0)
                 JOptionPane.showMessageDialog(this, "ERROR:\n Por favor, ingrese un peso mayor que 0"); 
             else
                 JOptionPane.showMessageDialog(this, "ERROR:\n Por favor, ingrese nombres válidos de aristas existentes"); 
+        
+        }catch(java.lang.NumberFormatException ex){}catch(java.lang.NullPointerException ex){}catch(java.lang.ArrayIndexOutOfBoundsException ex){}
+        
         actualizarGrafo();
         estadoBotonSave();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // ELIMINAR ARISTA
+        try{
+            
         String v1 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice de donde origina la arista a eliminar: ");
         String v2 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice a donde apunta la arista a eliminar: ");
         int p = Integer.parseInt(JOptionPane.showInputDialog(this,"Ingrese el peso de la arista a eliminar: "));       
@@ -305,7 +320,10 @@ public class UFPrincipal extends javax.swing.JFrame {
             if (p < 0)
                 JOptionPane.showMessageDialog(this, "ERROR:\n Por favor, ingrese un peso mayor que 0"); 
             else
-                JOptionPane.showMessageDialog(this, "ERROR:\n Por favor, ingrese nombres válidos de aristas existentes");       
+                JOptionPane.showMessageDialog(this, "ERROR:\n Por favor, ingrese nombres válidos de aristas existentes");  
+        
+        }catch(java.lang.NumberFormatException ex){}catch(java.lang.NullPointerException ex){}catch(java.lang.ArrayIndexOutOfBoundsException ex){}
+            
         actualizarGrafo();
         estadoBotonSave();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
@@ -316,6 +334,49 @@ public class UFPrincipal extends javax.swing.JFrame {
         MG = new Multigrafo();
         estadoBotonSave();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // ARISTA EXISTE?
+        
+        try{
+        
+        String v1 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice de donde origina la arista a buscar: ");
+        String v2 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice a donde apunta la arista a buscar: ");
+        int p =  Integer.parseInt(JOptionPane.showInputDialog(this,"Ingrese el peso de la arista a buscar: "));
+        if(nombreExistente(v1) && nombreExistente(v2) && MG.aristaExiste(v1, p, v2))
+            JOptionPane.showMessageDialog(null, "Si, la arista que parte de "+v1+" hasta "+v2+" con peso de "+p+", si existe.");
+        else
+            JOptionPane.showMessageDialog(null, "No, la arista que parte de "+v1+" hasta "+v2+" con peso de "+p+", no existe.");
+        
+        }catch(java.lang.NumberFormatException ex){}catch(java.lang.NullPointerException ex){}catch(java.lang.ArrayIndexOutOfBoundsException ex){}
+        
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // MODIFICAR PESO DE LA ARISTA
+        
+        try{
+        
+        String v1 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice de donde origina la arista a modificar: ");
+        String v2 = JOptionPane.showInputDialog(this,"Ingrese el nombre del vértice a donde apunta la arista a modificar: ");
+        int pa =  Integer.parseInt(JOptionPane.showInputDialog(this,"Ingrese el peso que desea cambiar: "));
+        int p =  Integer.parseInt(JOptionPane.showInputDialog(this,"Ingrese el peso que desea cambiar: "));
+        if(MG.aristaExiste(v1, pa, v2)){
+            MG.modPesoArista(v1, pa, v2, p);
+            actualizarGrafo();
+            
+            estadoBotonSave();
+        }
+        else{
+            if((nombreExistente(v1) && nombreExistente(v2)) && MG.aristaExiste(v1, p, v2))
+                JOptionPane.showMessageDialog(null, "ERROR:\n No puede modificar esa arista con ese peso, porque otra arista en misma direccion ya tiene ese peso");
+            else
+                JOptionPane.showMessageDialog(null, "ERROR:\n La arista a modificar no existe");
+        }
+        
+        }catch(java.lang.NumberFormatException ex){}catch(java.lang.NullPointerException ex){}catch(java.lang.ArrayIndexOutOfBoundsException ex){}
+        
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,6 +418,7 @@ public class UFPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -364,7 +426,7 @@ public class UFPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
