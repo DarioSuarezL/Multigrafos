@@ -15,11 +15,9 @@ public class Multigrafo {
         marca = new boolean[MAXVERTEX+1];
     }
     
-    public boolean nombreValido(String name){
-        String mayus = name.toUpperCase(); // quitar el bug de los nombres mayusculas y minusculas
+    public boolean nombreValido(String name){  // quitar el bug de los nombres mayusculas y minusculas     
         for (int i = 0; i < cantVertice(); i++){
-            String nmayus = Nombre[i].toUpperCase();
-            if(nmayus.equals(mayus))
+            if(Nombre[i].toUpperCase().equals(name.toUpperCase()))
                 return false;
         }
         return true;
@@ -58,9 +56,9 @@ public class Multigrafo {
         }
     }
     
-    public int nombreVertice(String name){
+    public int nombreVertice(String name){  // quitar el bug de los nombres mayusculas y minusculas
         for(int i = 0; i <=n; i++)
-            if(Nombre[i].equals(name))
+            if(Nombre[i].toUpperCase().equals(name.toUpperCase()))
                 return i;
         return -1;
     }
