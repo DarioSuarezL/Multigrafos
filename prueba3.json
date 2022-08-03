@@ -3,7 +3,7 @@
     {
       "L": {
         "data": 1,
-        "peso": 11
+        "peso": 98
       },
       "n": 1
     },
@@ -11,7 +11,11 @@
       "n": 0
     },
     {
-      "n": 0
+      "L": {
+        "data": 0,
+        "peso": 55
+      },
+      "n": 1
     },
     null,
     null,
@@ -62,9 +66,9 @@
     null
   ],
   "Nombre": [
-    "dario",
-    "suarez",
-    "lazarte",
+    "dd",
+    "ss",
+    "ll",
     null,
     null,
     null,

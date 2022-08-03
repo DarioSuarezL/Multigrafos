@@ -85,6 +85,18 @@ public class Lista {
         return p.getData();
     }
     
+    public Nodo getNodo(int k){
+                if (k < 0 || k > length() - 1) //Diverge con la PRE
+            throw new RuntimeException("Lista.get: Índice " + k + ", fuera de rango.");
+            
+        Nodo p=L;
+        for (int i = 1; i <= k; i++){           
+            p = p.getLink();
+        }
+        
+        return p;
+    }
+    
     @Override
     public String toString(){ 
         String S = "[";

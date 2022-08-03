@@ -4,24 +4,50 @@
       "L": {
         "data": 1,
         "link": {
-          "data": 2,
-          "peso": 123
+          "data": 1,
+          "link": {
+            "data": 3,
+            "link": {
+              "data": 3,
+              "peso": 15
+            },
+            "peso": 5
+          },
+          "peso": 20
         },
-        "peso": 456
+        "peso": 10
       },
-      "n": 2
+      "n": 4
     },
     {
       "L": {
-        "data": 2,
-        "peso": 111
+        "data": 0,
+        "link": {
+          "data": 2,
+          "link": {
+            "data": 2,
+            "peso": 90
+          },
+          "peso": 60
+        },
+        "peso": 20
+      },
+      "n": 3
+    },
+    {
+      "L": {
+        "data": 1,
+        "peso": 30
       },
       "n": 1
     },
     {
-      "n": 0
+      "L": {
+        "data": 0,
+        "peso": 60
+      },
+      "n": 1
     },
-    null,
     null,
     null,
     null,
@@ -70,10 +96,10 @@
     null
   ],
   "Nombre": [
-    "dario",
-    "suarez",
-    "lazarte",
-    null,
+    "SCZ",
+    "CBBA",
+    "LPZ",
+    "SUCRE",
     null,
     null,
     null,
@@ -121,57 +147,5 @@
     null,
     null
   ],
-  "n": 2,
-  "marca": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ]
+  "n": 3
 }

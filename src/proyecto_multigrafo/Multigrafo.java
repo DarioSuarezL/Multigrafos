@@ -3,16 +3,16 @@ package proyecto_multigrafo;
 public class Multigrafo {
     private static final int MAXVERTEX = 49;
     
-    private Lista V[];
+    public Lista V[];
     private String Nombre[];
     private int n;
-    private boolean marca[];
+    //private boolean marca[];
     
     public Multigrafo(){
         V = new Lista[MAXVERTEX+1];
         Nombre = new String[MAXVERTEX+1];
         n = -1;
-        marca = new boolean[MAXVERTEX+1];
+        //marca = new boolean[MAXVERTEX+1];
     }
     
     public boolean nombreValido(String name){  // quitar el bug de los nombres mayusculas y minusculas     
@@ -54,6 +54,18 @@ public class Multigrafo {
             case 2  :   return "(0 y 1 son los únicos vértices). ";
             default :   return "(los vértices van de 0 a " + (cantVertice()-1) + "). "; 
         }
+    }
+    
+    public int getPeso(String u, String v){
+        int uVert = nombreVertice(u);
+        int vVert = nombreVertice(v);
+        for (int i = 0; i < V[uVert].length(); i++) {
+            if (V[uVert].isVacia())
+                return -1;
+            if(V[uVert].get(i) == vVert)
+                return V[uVert].getNodo(i).getPeso();
+        }
+        return -1;
     }
     
     public int nombreVertice(String name){  // quitar el bug de los nombres mayusculas y minusculas
@@ -121,6 +133,7 @@ public class Multigrafo {
 
 // METODOS DE MARCADO
     
+    /*
     private void marcar(int u){
         if (isVerticeValido(u))
            marca[u] = true; 
@@ -140,5 +153,5 @@ public class Multigrafo {
     private boolean isMarcado(int u){   //Devuelve true sii el vertice u está marcado.
         return marca[u]; 
     }
-    
+    */
 }

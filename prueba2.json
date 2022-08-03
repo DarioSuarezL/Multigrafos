@@ -3,19 +3,27 @@
     {
       "L": {
         "data": 1,
-        "peso": 12
+        "link": {
+          "data": 3,
+          "peso": 55
+        },
+        "peso": 11
       },
-      "n": 1
+      "n": 2
+    },
+    {
+      "n": 0
+    },
+    {
+      "n": 0
     },
     {
       "L": {
         "data": 0,
-        "peso": 33
+        "peso": 34
       },
       "n": 1
     },
-    null,
-    null,
     null,
     null,
     null,
@@ -64,10 +72,10 @@
     null
   ],
   "Nombre": [
-    "darrio",
-    "vista",
-    null,
-    null,
+    "dario",
+    "suarez",
+    "lazarte",
+    "prueba2",
     null,
     null,
     null,
@@ -115,57 +123,5 @@
     null,
     null
   ],
-  "n": 1,
-  "marca": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ]
+  "n": 3
 }

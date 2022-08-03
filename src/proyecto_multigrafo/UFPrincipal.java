@@ -50,6 +50,8 @@ public class UFPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         textArea1 = new java.awt.TextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -64,6 +66,14 @@ public class UFPrincipal extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("jMenu5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Proyecto Multigrafo");
@@ -72,14 +82,14 @@ public class UFPrincipal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(0, 0));
 
         textArea1.setBackground(new java.awt.Color(0, 0, 0));
-        textArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         textArea1.setEditable(false);
         textArea1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         textArea1.setForeground(new java.awt.Color(255, 255, 255));
 
         jMenu1.setText("File");
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setLabel("New file");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +98,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setLabel("Open file");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +107,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem3.setText("Save as");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +116,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem4.setText("Save");
         jMenuItem4.setEnabled(false);
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +130,7 @@ public class UFPrincipal extends javax.swing.JFrame {
 
         jMenu2.setText("Edit");
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem5.setLabel("addVertice");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +139,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem6.setLabel("addArista");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +148,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem6);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem7.setLabel("delArista");
         jMenuItem7.setName(""); // NOI18N
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +158,7 @@ public class UFPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem7);
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem8.setLabel("cleanGrafo");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,6 +184,30 @@ public class UFPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem10);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("CREAR");
+
+        jMenuItem11.setText("crear");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem11);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu6.setText("DEFENSA");
+
+        jMenuItem12.setText("defensa");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem12);
+
+        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -236,7 +270,7 @@ public class UFPrincipal extends javax.swing.JFrame {
                         }catch(FileNotFoundException ex) {
                             Logger.getLogger(UFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                         }catch(com.google.gson.JsonSyntaxException ex){
-                            JOptionPane.showMessageDialog(this, "ERROR:\n Archivo lo soportado o corrupto");
+                            JOptionPane.showMessageDialog(this, "ERROR:\n Archivo no soportado o corrupto");
                         }catch(java.lang.IllegalStateException ex){
                             JOptionPane.showMessageDialog(this, "ERROR:\n El archivo no corresponde a un objeto Multigrafo");
                         }
@@ -253,6 +287,7 @@ public class UFPrincipal extends javax.swing.JFrame {
             jsonText = gson.toJson(MG);
             try (PrintWriter pw = new PrintWriter(archivo)){
                 pw.write(jsonText);
+                archivoAbierto = true;
             }catch (FileNotFoundException ex){
                 Logger.getLogger(UFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -378,6 +413,66 @@ public class UFPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
+    private void GenerarMultigrafo(){
+        MG = new Multigrafo();
+        MG.addVertice("SCZ");
+        MG.addVertice("CBBA");
+        MG.addVertice("LPZ");
+        MG.addVertice("SUCRE");
+        
+        MG.addArista("SCZ", 20, "CBBA");
+        MG.addArista("SCZ", 10, "CBBA");
+        MG.addArista("SCZ", 5, "SUCRE");
+        MG.addArista("SCZ", 15, "SUCRE");
+        
+        MG.addArista("SUCRE", 60, "SCZ");
+        
+        MG.addArista("CBBA", 20, "SCZ");
+        MG.addArista("CBBA", 60, "LPZ");
+        MG.addArista("CBBA", 90, "LPZ");
+        
+        MG.addArista("LPZ", 30, "CBBA");
+    }
+    
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        GenerarMultigrafo();       
+        actualizarGrafo();
+        seleccion.setDialogType(JFileChooser.SAVE_DIALOG);
+        seleccion.setSelectedFile(new File("defensa.json"));
+        if(seleccion.showDialog(null, "Guardar") == JFileChooser.APPROVE_OPTION){
+            archivo = seleccion.getSelectedFile();
+            jsonText = gson.toJson(MG);
+            try (PrintWriter pw = new PrintWriter(archivo)){
+                pw.write(jsonText);
+                archivoAbierto = true;
+            }catch (FileNotFoundException ex){
+                Logger.getLogger(UFPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void GenerarVerticeEspecial(){
+        MG.addVertice("ACME");
+        MG.addArista("LPZ", 100, "ACME");
+        MG.addArista("LPZ", 200, "ACME");
+        actualizarGrafo();
+    }
+    
+    private String generarRecorrido(String partida, String llegada){
+        String res = "RECORRIDO:  ";
+        if (MG.V[MG.nombreVertice("LPZ")].Existe(MG.nombreVertice(partida), MG.getPeso("LPZ", partida))){
+            res = res + partida+" --"+MG.getPeso("LPZ", partida)+" --> "+"LPZ --"+MG.getPeso("LPZ","CBBA")+" --> "+"CBBA --"+MG.getPeso("CBBA",llegada)+" --> "+llegada;
+        }
+        return res;
+    }
+    
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        GenerarVerticeEspecial();
+        this.textArea1.setText(generarRecorrido("ACME","SCZ"));
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -416,9 +511,15 @@ public class UFPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
